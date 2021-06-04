@@ -77,7 +77,7 @@ function! moonfly_statusline#GetFormatIcon() abort
         return ''
     endif
 
-    return WebDevIconsGetFileFormatSymbol()
+    return WebDevIconsGetFileFormatSymbol() . ' | '
 endfunction
 
 function! moonfly_statusline#PluginsStatus() abort
@@ -128,7 +128,7 @@ function! moonfly_statusline#ActiveStatusLine() abort
     let l:statusline .= "%{&readonly ? 'RO\ ' : ''}"
     let l:statusline .= '%5*%{moonfly_statusline#GitBranch()}'
     let l:statusline .= '%6*%{moonfly_statusline#PluginsStatus()}'
-    let l:statusline .= '%*%=%{moonfly_statusline#GetFormatIcon()} | '
+    let l:statusline .= '%*%=%{moonfly_statusline#GetFormatIcon()}'
     let l:statusline .= '%l:%c | %7*%L%* | %P '
 
     return l:statusline
